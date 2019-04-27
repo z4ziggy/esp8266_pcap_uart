@@ -1,0 +1,45 @@
+menu "Sniffer Configuration"
+
+config SNIFFER_CHANNEL_HOPING
+    bool "Hop channels"
+    default n
+    help
+        Hop WIFI channels every SNIFFER_CHANNEL_SWITCH_INTERVAL ms
+
+config SNIFFER_CHANNEL_SWITCH_INTERVAL
+    int "Switch channels every xx ms"
+    default 500
+    help
+        Set time (in ms) to switch to next channel
+
+config SNIFFER_CHANNEL
+    int "Channel to sniff (if not hoping)"
+    default 9
+    help
+        Channel to sniff (if SNIFFER_CHANNEL_HOPING is not enabled).
+
+config SNIFFER_LED_GPIO_PIN
+    int "Led GPIO"
+    default 2
+    help
+        Use a led to flash every SNIFFER_CHANNEL_SWITCH_INTERVAL to show it's working. Enter unsed GPIO pin for stealth mode.
+
+config SNIFFER_CHANNEL_MAX
+    int "Max channel"
+    default 13
+    help
+        Max WIFI channel to sniff, usually 13 for most countries.
+
+config SNIFFER_UART_BUFFER_SIZE
+    int "Size of the UART buffer"
+    default 4096
+    help
+        The size of UART buffer.
+
+config SNIFFER_UART_BAUD_RATE
+    int "Baud rate for UART"
+    default 115200
+    help
+        The UART baud rate (speed).
+
+endmenu
